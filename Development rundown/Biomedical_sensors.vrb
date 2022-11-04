@@ -1,0 +1,22 @@
+\frametitle{Development phase - Event driven system behavior}
+		Once the states have been defined, a function is executed periodically with a low priority. For example:\\
+		\hspace{-3cm}\begin{adjustbox}{max width=.9\textwidth}
+			\begin{lstlisting}[language=C]
+				void doIdleJob(void){
+					...
+					//do stuff
+					...
+					//Maybe blink the LED to show that the system is alive
+					...
+				}
+			
+				void doReadyJob(void){
+					...
+					//do other stuff
+					...
+					//Blink the led some other color to show that the system is ready
+					...
+				}
+			\end{lstlisting}
+		\end{adjustbox}\\
+		Events must then be defined as high priority functions (interrupt) that perform operations needed in the state change and start the new (low-priority) job.	
